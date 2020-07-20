@@ -30,4 +30,19 @@ public class TestDao {
 		List<TestVO> test = this.sqlSession.selectList("test.getTests");		
 		return test;
 	}
+	
+	public int insertTest(TestVO test) {
+		return this.sqlSession.insert("test.insertTest", test);
+	}
+	
+	public int deleteTest(int key) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("key", key);
+		
+		return this.sqlSession.delete("test.deleteTest", param);
+	}
+	
+	public int updateTest(TestVO test) {
+		return this.sqlSession.update("test.updateTest", test);
+	}
 }

@@ -21,4 +21,16 @@ public class TestService {
 	public List<TestVO> getTests() {
 		return this.testDao.getTests();
 	}
+	
+	public int insertTest(TestVO test) {
+		return this.testDao.insertTest(test);
+	}
+	
+	public int deleteTest(int key) {
+		return this.testDao.deleteTest(key);
+	}
+	
+	public int updateTest(TestVO test) {
+		return this.testDao.updateTest(test);
+	}
 }
