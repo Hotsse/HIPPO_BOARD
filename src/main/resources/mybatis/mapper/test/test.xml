@@ -4,7 +4,8 @@
 <mapper namespace="test">
 
 	<select id="getTest" parameterType="Map" resultType="TestVO">
-		SELECT param1 as param1
+		SELECT key as key
+			, param1 as param1
 			, param2 as param2
 			, param3 as param3
 		FROM test
@@ -12,7 +13,8 @@
 	</select>
 	
 	<select id="getTests" parameterType="Map" resultType="TestVO">
-		SELECT param1 as param1
+		SELECT key as key
+			, param1 as param1
 			, param2 as param2
 			, param3 as param3
 		FROM test

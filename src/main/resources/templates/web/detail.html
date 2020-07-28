@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p th:text="${test.param1}"></p>
+<p th:text="${test.param2}"></p>
+<p th:text="${test.param3}"></p>
+
+<form action="/delete" method="post">
+	<input type="text" name="key" th:value="${test.key}" />
+	<input type="submit" value="삭제"/>
+</form>
+
+</body>
+</html>
