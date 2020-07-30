@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="/modify" method="post">
+	<input name="key" type="hidden" th:value="${test.key}" />
+	<input name="param1" type="text" th:value="${test.param1}" />
+	<input name="param2" type="text" th:value="${test.param2}" />
+	<input name="param3" type="text" th:value="${test.param3}" />
+	<input type="submit" />
+</form>
+
+</body>
+</html>
