@@ -2,16 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Index</title>
 </head>
 <body>
 
-awiejgioeawjgiojwaeoigjeawiogjowaeijgoiewajgoiawjgoiewjo
-
-wegwegwwegwegw
-
-
-awegawegeawg
+<h1>Index</h1>
 
 <div th:each="test : ${tests}">
 	<a th:href="@{'/detail/' + ${test.key}}" th:text="${test.param1}"></a>
