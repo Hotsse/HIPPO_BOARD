@@ -12,11 +12,8 @@ spring:
     password: 1234
     
 logging:
-  file:
-    path: C:/var/log                                       # log 파일 생성 경로
   pattern:
     console: "[%-5level] %d{yyyy-MM-dd HH:mm:ss} : %30logger{5} - %msg%n"
-    file: "[%-5level] %d{yyyy-MM-dd HH:mm:ss} : %30logger{5} - %msg%n"
   level:
     root: info
-    com.hipporing.board: debug
+    com.hipporing.board: info

@@ -8,9 +8,30 @@
 
 <h1>Index</h1>
 
-<div th:each="test : ${tests}">
-	<a th:href="@{'/detail/' + ${test.key}}" th:text="${test.param1}"></a>
-</div>
+<table style="width:100%;">
+	<colgroup>
+		<col width="60%" />
+		<col width="20%" />
+		<col width="20%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일시</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="test : ${tests}">
+			<td>
+				<a th:href="@{'/detail/' + ${test.key}}" th:text="${test.param1}"></a>
+			</td>
+			<td th:text="${test.regId}"></td>
+			<td th:text="${test.regDtt}"></td>
+		</tr>
+	</tbody>
+</table>
+<button onclick="javascript:window.location.href='/write';">글쓰기</button>
 
 </body>
 </html>

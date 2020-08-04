@@ -8,6 +8,8 @@
 			, param1 as param1
 			, param2 as param2
 			, param3 as param3
+			, reg_id as regId
+			, reg_dtt as regDtt
 		FROM test
 		WHERE key = #{key}
 	</select>
@@ -17,6 +19,8 @@
 			, param1 as param1
 			, param2 as param2
 			, param3 as param3
+			, reg_id as regId
+			, reg_dtt as regDtt
 		FROM test
 		ORDER BY key DESC
 	</select>
@@ -26,11 +30,15 @@
 			param1
 			, param2
 			, param3
+			, reg_id
+			, reg_dtt
 		)
 		VALUES (
 			#{param1}
 			, #{param2}
 			, #{param3}
+			, #{regId}
+			, now()
 		)
 	</insert>
 	

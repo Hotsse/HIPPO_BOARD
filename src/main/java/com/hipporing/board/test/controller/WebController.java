@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hipporing.board.core.base.BaseController;
 import com.hipporing.board.test.service.LoginService;
 import com.hipporing.board.test.service.TestService;
 import com.hipporing.board.test.vo.LoginVO;
@@ -19,7 +20,7 @@ import com.hipporing.board.test.vo.TestVO;
 
 @Controller
 @RequestMapping(value = "")
-public class WebController {
+public class WebController extends BaseController {
 	
 	@Autowired
 	private TestService testService;
@@ -30,14 +31,7 @@ public class WebController {
 	@RequestMapping(value = "/", method = {RequestMethod.GET})
 	public String index(Model model) {
 		
-		List<TestVO> tests = this.testService.getTests();
-		
-		for(TestVO test : tests) {
-			System.out.println(test.getParam1());
-			System.out.println(test.getParam2());
-			System.out.println(test.getParam3());
-		}
-		
+		List<TestVO> tests = this.testService.getTests();		
 		model.addAttribute("tests", tests);
 		
 		return "web/index";
@@ -45,7 +39,12 @@ public class WebController {
 	
 	@RequestMapping(value = "/detail/{key}", method = {RequestMethod.GET})
 	public String detail(@PathVariable(name = "key", required = true) int key
-				, Model model) {
+				, Model model
+				, HttpServletRequest req) {
+		
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		model.addAttribute("userId", id);
 		
 		TestVO test = this.testService.getTest(key);
 		model.addAttribute("test", test);
@@ -59,9 +58,15 @@ public class WebController {
 	}
 	
 	@RequestMapping(value = "/write", method = {RequestMethod.POST})
-	public String postWrite(TestVO test) {
+	public String postWrite(TestVO test
+			, HttpServletRequest req) {
 		
-		System.out.println(test.toString());
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		
+		test.setRegId(id);
+		
+		this.log.debug(test.toString());
 		
 		this.testService.insertTest(test);
 		

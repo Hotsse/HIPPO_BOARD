@@ -9,14 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.hipporing.board.core.base.BaseDao;
 import com.hipporing.board.test.vo.TestVO;
 
 @Repository
-public class TestDao {
-	
-	@Autowired
-	@Qualifier("sqlSessionTemplate")
-	private SqlSession sqlSession;
+public class TestDao extends BaseDao {
 
 	public TestVO getTest(int key) {
 		Map<String, Object> param = new HashMap<String, Object>();

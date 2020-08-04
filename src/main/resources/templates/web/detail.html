@@ -10,14 +10,16 @@
 <p th:text="${test.param2}"></p>
 <p th:text="${test.param3}"></p>
 
-<form action="/delete" method="post">
-	<input type="hidden" name="key" th:value="${test.key}" />
-	<input type="submit" value="삭제"/>
-</form>
-
-<form th:action="@{'/modify/' + ${test.key}}" method="get">
-	<input type="submit" value="수정"/>
-</form>
+<div th:if="${test.regId == userId}">
+	<form th:action="@{'/modify/' + ${test.key}}" method="get">
+		<input type="submit" value="수정"/>
+	</form>
+	
+	<form action="/delete" method="post">
+		<input type="hidden" name="key" th:value="${test.key}" />
+		<input type="submit" value="삭제"/>
+	</form>
+</div>
 
 </body>
 </html>
