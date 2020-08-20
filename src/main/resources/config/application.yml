@@ -11,6 +11,8 @@ spring:
     username: 
     password: 
     
+    f
+    
 logging:
   file:
     path: C:/var/log                                       # log 파일 생성 경로
